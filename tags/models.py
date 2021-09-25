@@ -5,7 +5,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 
 class Tag(models.Model):
     label = models.CharField(max_length=255)
-    attached_file = models.FileField()
+    attached_file = models.FileField(upload_to='tags')
 
     def __str__(self):
         return self.label
