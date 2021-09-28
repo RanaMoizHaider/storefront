@@ -6,7 +6,7 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 
 
 class TagInline(GenericTabularInline):
-    autocomplete_fields = ['tag']
+    # autocomplete_fields = ['tag']
     model = TaggedItem
     extra = 1
 

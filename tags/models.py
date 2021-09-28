@@ -12,7 +12,8 @@ class Tag(models.Model):
 
 
 class TaggedItem(models.Model):
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    label = models.CharField(max_length=255, null=True)
+    attached_file = models.FileField(upload_to='tags', null=True)
+    content_type = models.ForeignKey(ContentType, on_delete=models.PROTECT)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
