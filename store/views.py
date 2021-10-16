@@ -11,7 +11,7 @@ from .serializers import ProductSerializer, CollectionSerializer
 def product_list(request):
     queryset = Product.objects.select_related('collection').all()
     serializer = ProductSerializer(queryset, many=True, context={'request': request})
-    return Response(serializer.data)\
+    return Response(serializer.data)
 
 
 @api_view()
