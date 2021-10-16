@@ -4,9 +4,13 @@ from .models import Product, Collection
 from rest_framework import serializers
 
 
-class CollectionSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    title = serializers.CharField(max_length=255)
+class CollectionSerializer(serializers.ModelSerializer):
+    # id = serializers.IntegerField()
+    # title = serializers.CharField(max_length=255)
+
+    class Meta:
+        model = Collection
+        fields = ['id', 'title']
 
 
 class ProductSerializer(serializers.Serializer):
