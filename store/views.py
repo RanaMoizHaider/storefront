@@ -40,8 +40,13 @@ def product_detail(request, id):
     if request.method == 'GET':
         serializer = ProductSerializer(product)
         return Response(serializer.data)
-    elif request.method == 'PUT' or request.method == 'PATCH':
+    elif request.method == 'PUT':
         serializer = ProductSerializer(product, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == 'PATCH':
+        serializer = ProductSerializer(product, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
