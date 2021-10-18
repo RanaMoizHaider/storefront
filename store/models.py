@@ -31,7 +31,7 @@ class Product(models.Model):
         validators=[MinValueValidator(1)])
     inventory = models.IntegerField()
     last_update = models.DateTimeField(auto_now_add=True)
-    collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
+    collection = models.ForeignKey(Collection, on_delete=models.PROTECT, related_name='products')
     # promotions = models.ManyToManyField(Promotion, related_name='products')
     promotions = models.ManyToManyField(Promotion, blank=True)
     phone = PhoneNumberField(null=True)
