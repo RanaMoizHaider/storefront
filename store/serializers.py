@@ -1,6 +1,6 @@
 from abc import ABC
 from decimal import Decimal
-from .models import Product, Collection
+from .models import Product, Collection, Reviews
 from rest_framework import serializers
 
 
@@ -53,3 +53,9 @@ class ProductSerializer(serializers.ModelSerializer):
     #     instance.unit_price = validated_data.get('unit_price')
     #     instance.save()
     #     return instance
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reviews
+        fields = ['id', 'date', 'name', 'description', 'product']
