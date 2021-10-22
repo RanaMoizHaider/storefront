@@ -1,6 +1,6 @@
 from abc import ABC
 from decimal import Decimal
-from .models import Product, Collection, Reviews
+from .models import Product, Collection, Reviews, Cart, CartItem
 from rest_framework import serializers
 
 
@@ -63,3 +63,11 @@ class ReviewSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         product_id = self.context['product_id']
         return Reviews.objects.create(product_id=product_id, **validated_data)
+
+
+class CartSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField(read_only=True)
+
+    class Meta:
+        model = Cart
+        fields = ['id']
