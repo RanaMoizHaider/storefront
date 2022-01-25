@@ -1,4 +1,4 @@
-from abc import ABC
+# from abc import ABC
 from decimal import Decimal
 from .models import Product, Collection, Reviews, Cart, CartItem
 from rest_framework import serializers

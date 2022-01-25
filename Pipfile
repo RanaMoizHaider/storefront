@@ -12,6 +12,7 @@ drf-nested-routers = "*"
 django-filter = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
+django-rest-framework-roles = "*"
 
 [dev-packages]
 
